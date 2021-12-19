@@ -11,6 +11,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { CustomerComponent } from './components/customer/customer.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,10 @@ import { RentalComponent } from './components/rental/rental.component';
     CarDetailComponent,
     CustomerComponent,
     FooterComponent,
-    RentalComponent
+    RentalComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
