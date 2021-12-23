@@ -8,15 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-detail.component.css'],
 })
 export class CarDetailComponent implements OnInit {
-  cars: CarDetail[] = [];
-  constructor(private carService: CarService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.getCarDetails();
-  }
-  getCarDetails() {
-    this.carService.getCarDetails().subscribe((response) => {
-      this.cars = response.data;
-    });
-  }
+  ngOnInit(): void {}
 }

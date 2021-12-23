@@ -9,10 +9,17 @@ import { Color } from '../models/entities/color';
   providedIn: 'root',
 })
 export class ColorService {
-  private getAllUrl = ApiUrl.baseUrl + 'api/color/getall';
+  getAllUrl = ApiUrl.baseUrl + 'api/colors/getall';
   constructor(private httpClient: HttpClient) {}
 
   getAllColor(): Observable<ListResponseModel<Color>> {
-    return this.httpClient.get<ListResponseModel<Color>>(this.getAllUrl);
+    let newPath = ApiUrl.baseUrl + 'colors/getall';
+    return this.httpClient.get<ListResponseModel<Color>>(newPath);
+  }
+
+  getColorById(id: number): Observable<ListResponseModel<Color>> {
+    return this.httpClient.get<ListResponseModel<Color>>(
+      this.getAllUrl + 'colors/getbyid?id=' + id
+    );
   }
 }

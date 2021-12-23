@@ -9,7 +9,7 @@ import { Brand } from '../models/entities/brand';
   providedIn: 'root',
 })
 export class BrandService {
-  private getAllUrl = ApiUrl.baseUrl + 'api/brand/getall';
+  getAllUrl = ApiUrl.baseUrl + 'api/brand/getall';
   constructor(private httpClient: HttpClient) {}
 
   getAllBrand(): Observable<ListResponseModel<Brand>> {

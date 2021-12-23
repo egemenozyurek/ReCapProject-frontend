@@ -9,6 +9,8 @@ import { Brand } from 'src/app/models/entities/brand';
 })
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
+  currentBrand: Brand;
+  dataLoaded = false;
   constructor(private brandService: BrandService) {}
 
   ngOnInit(): void {
@@ -18,6 +20,27 @@ export class BrandComponent implements OnInit {
   getAllBrand() {
     this.brandService.getAllBrand().subscribe((response) => {
       this.brands = response.data;
+      this.dataLoaded = true;
     });
+  }
+
+  setCurrentBrand(brand: Brand) {
+    this.currentBrand = brand;
+  }
+
+  getCurrentBrandClass(brand: Brand) {
+    if (brand == this.currentBrand) {
+      return 'list-group-item active';
+    } else {
+      return 'list-group-item';
+    }
+  }
+
+  getAllCars() {
+    if (!this.currentBrand) {
+      return 'list-group-item active';
+    } else {
+      return 'list-group-item';
+    }
   }
 }

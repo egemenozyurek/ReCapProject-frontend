@@ -9,7 +9,7 @@ import { Customer } from '../models/entities/customer';
   providedIn: 'root',
 })
 export class CustomerService {
-  private getAllUrl: string = ApiUrl.baseUrl + 'api/customer/getall';
+  private getAllUrl: string = ApiUrl.baseUrl + 'api/customers/getall';
   constructor(private httpClient: HttpClient) {}
 
   getAllCustomers(): Observable<ListResponseModel<Customer>> {
